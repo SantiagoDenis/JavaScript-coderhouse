@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Comfortaa', cursive; }
+
+html {
+  scroll-behavior: smooth; }
+
+body {
+  background: #292323; }
+
+nav {
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+  opacity: .3;
+  height: 10vh;
+  width: 100%;
+  z-index: 100;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.2); }
+  nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 2vh; }
+    nav ul li a {
+      text-decoration: none;
+      color: #f0f0f0;
+      font-size: 1.1em; }
+
+/*content*/
+.intro {
+  width: 100%;
+  height: 100vh; }
+  .intro .bg {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(/imgs/universe_background.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-attachment: fixed; }
+    .intro .bg .content {
+      width: 90%;
+      margin: 0 auto;
+      height: 70%;
+      position: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .intro .bg .content .cards {
+        width: 30%;
+        height: 90%;
+        background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1%;
+        flex-wrap: wrap;
+        border-radius: 3%;
+        overflow: hidden;
+        opacity: .8;
+        transition: 0.3s ease; }
+        .intro .bg .content .cards .img-container {
+          width: 100%;
+          height: 60%;
+          background: #2c3e50;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+          .intro .bg .content .cards .img-container img {
+            width: 50%;
+            border-radius: 50%; }
+        .intro .bg .content .cards .title-container {
+          width: 100%;
+          height: 10%;
+          background: #ecf0f1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer; }
+          .intro .bg .content .cards .title-container h2 {
+            font-family: 'Quicksand', sans-serif;
+            color: #334; }
+        .intro .bg .content .cards .title-container:hover {
+          background: #34495e; }
+        .intro .bg .content .cards .text-container {
+          width: 100%;
+          height: 30%;
+          background: #bdc3c7;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #333; }
+          .intro .bg .content .cards .text-container p {
+            width: 80%;
+            height: auto;
+            text-align: center; }
+      .intro .bg .content .cards:hover {
+        width: 30%;
+        height: 100%; }
+
+.about {
+  height: 100vh;
+  width: 100%;
+  position: relative; }
+  .about .bg {
+    width: 100%;
+    height: 150vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(/imgs/Space-Desktop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-attachment: fixed; }
+    .about .bg .content {
+      background: #fff;
+      width: 90%;
+      margin: 0 auto;
+      height: 70%;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+
+.travels {
+  background: #fff;
+  height: 100vh;
+  width: 100%;
+  position: relative; }
+  .travels .bg {
+    width: 100%;
+    height: 150vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(/imgs/background_2.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-attachment: fixed; }
+    .travels .bg .content {
+      width: 90%;
+      margin: 0 auto;
+      height: 70%;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+
+.planets {
+  height: 150vh;
+  width: 100%;
+  position: relative; }
+  .planets .bg {
+    width: 100%;
+    height: 300vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-attachment: fixed; }
+    .planets .bg .content {
+      width: 90%;
+      margin: 0 auto;
+      height: 80%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 3%; }
+      .planets .bg .content .cards {
+        width: 100%;
+        height: 90%;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1%;
+        flex-wrap: wrap;
+        border-radius: 3%;
+        overflow: hidden;
+        opacity: .8;
+        transition: 0.3s ease; }
+        .planets .bg .content .cards .img-container {
+          width: 100%;
+          height: 60%;
+          background: #0c0f13;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+          .planets .bg .content .cards .img-container img {
+            width: 70%;
+            height: 70%;
+            border-radius: 50%; }
+        .planets .bg .content .cards .title-container {
+          width: 100%;
+          height: 10%;
+          background: #ecf0f1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer; }
+          .planets .bg .content .cards .title-container h2 {
+            font-family: 'Quicksand', sans-serif;
+            color: #334; }
+        .planets .bg .content .cards .title-container:hover {
+          background: #34495e; }
+        .planets .bg .content .cards .text-container {
+          width: 100%;
+          height: 30%;
+          background: #bdc3c7;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #333; }
+          .planets .bg .content .cards .text-container p {
+            width: 80%;
+            height: auto;
+            text-align: center; }

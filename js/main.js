@@ -8,7 +8,7 @@ class Planet { //constructor
     }
 }
 
-const mercury = new Planet("Mercury", 3.7, .24) ; //cada planeta utilizando al constructor
+const mercury = new Planet("mercury", 3.7, .24) ; //cada planeta utilizando al constructor
 const venus = new Planet("venus", 8.8, .61) ;
 const earth = new Planet("earth", 9.8, 1) ;
 const mars = new Planet("mars", 3.7, 1.88) ;
@@ -16,38 +16,30 @@ const jupiter = new Planet("jupiter", 24.8, 11.86) ;
 const saturn = new Planet("saturn", 10.4, 29.47) ;
 const uranus = new Planet("uranus", 8.8, 84.07) ;
 const neptune = new Planet("neptune", 11.1, 164.88) ;
-console.log(mercury); //Para comprobar su funcionamiento
 
-let creator = { //Un nuevo objeto que hice para probarlo sin el uso de un constructor
-    name: "Santi",
-    age: 17,
-    weight: 60,
-    planet: "earth",
-};
-console.log(creator["name"])
+//Clase 6 Arrays
+const allPlanets = [ mercury, venus, earth, mars, jupiter, saturn, uranus, neptune ] //array que organiza los planetas
+
+for (let i = 0; i <= 7; i++) { //for que recorre cada objeto dentro del array
+    console.log(allPlanets[i]);
+}
+
+allPlanets.push({pPlanetName: "pluto", pPlanetGravity: .62, pPlanetAge: 248 }); //la utilización de un método para agregar un cuerpo celeste y completar el sistema solar (como Plutón no es un planeta reconocido no lo agrego dentro de planets)
 
 
-/*
-//Const para calcular peso
-const mercuryGravity = 3.7;
-const venusGravity = 8.8;
-const earthGravity = 9.8;
-const marsGravity = 3.7;
-const jupiterGravity = 24.8;
-const saturnGravity = 10.4;
-const uranusGravity = 8.8;
-const neptuneGravity = 11.1;
+for (const planetName of allPlanets) {  //for que recorre en orden los nombres de los planetas
+    console.log(planetName.pPlanetName);
+}
 
-//const para calcular edad
-const mercuryAge = .24;
-const venusAge = .61;
-const earthAge = 1;
-const marsAge = 1.88;
-const jupiterAge = 11.86;
-const saturnAge = 29.47;
-const uranusAge = 84.07;
-const neptuneAge = 164.88;
- */
+//Utilizando en método filter para indicar qué planetas tienen menor fuerza de gravedad que la tierra y qué planetas tienen una mayor fuerza de gravedad.
+const lessGravity = allPlanets.filter( (planet) => planet.pPlanetGravity < 9.8 );
+const moreGravity = allPlanets.filter( (planet) => planet.pPlanetGravity > 9.8 );
+console.log(lessGravity);
+console.log(moreGravity);
+
+//Desafío complementario: Utilizando sort function para ordenar los planetas desde el más lejano al sol hasta el más cercano
+allPlanets.sort( (a, b) => b.pPlanetAge - a.pPlanetAge );
+console.log(allPlanets);
 
 const earthGravity = 9.8;
 const earthAge = 1;
