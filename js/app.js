@@ -1,5 +1,111 @@
-// Algoritmo: ¿Cuál es tu edad o peso en otros planetas?
+//obteniendo clases a través de const para el futuro carrito de compras
 
+const cartBtn = document.querySelector(".cart-btn");
+const closeCartBtn = document.querySelector(".close-cart");
+const clearCartBtn = document.querySelector(".clear-cart");
+const cartDOM = document.querySelector(".cart");
+const cartOverlay = document.querySelector(".cart-overlay");
+const cartItems = document.querySelector(".cart-items");
+const cartTotal = document.querySelector(".cart-total");
+const cartContent = document.querySelector(".cart-content");
+const travelsDOM = document.querySelector(".content");
+//el carrito de compras
+let cart = [];
+
+const img = document.querySelectorAll("img")
+
+
+
+//obteniendo los pasajes
+class Passages {
+
+}
+
+//mostrando esos pasajes al usuario
+class UI {
+
+}
+
+//subiendolo al local storage para que no se pierda al refrescar la página
+class Storage {
+
+}
+
+
+//para todas estas clases que he planeado, tengo pensado hacer un .json con los pasajes (y sus propiedades como precio, titulo, entre otros) para facilitar las operaciones que haga de forma dinámica (como, por ejemplo, agregar todos los pasajes de forma dinámica a través del DOM y no copiando y pegando en HTML). Mi pregunta es si tengo permitido hacerlo.
+
+
+//haciendo que la card gire al tocarla en .planets, para mostrar otro contenido (clase 8 y 9)
+
+const planetCard = document.querySelector('.card-inner');
+const planetCardBtn = document.querySelector('#out');
+const inputYear = document.querySelector('#year');
+const inputWeight = document.querySelector('#weight');
+
+
+planetCard.addEventListener('click', () => {
+    planetCard.classList.add('is-flipped');
+});
+
+planetCardBtn.addEventListener('click', () => {
+    planetCard.classList.remove('is-flipped');
+})
+
+
+
+//quiero agregar las cards de forma dinámica  para no tener tanto html pero no me deja. No sé cuál es el error
+/* const cards = ['mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune']
+const allCards = document.querySelector('.cards');
+
+for (const card of cards) {
+    allCards.innerHTML += `<div class="cards" data-id="1">
+    <div class="card-inner">
+        <div class="card-face card-front">
+            <div class="img-container">
+                <img class="img-fix" src="/imgs/${card}.jpg" alt="${card}">
+            </div>
+            <div class="title-container">
+                <h2>${card}</h2>
+            </div>
+            <div class="text-container">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+            </div>
+        </div>
+        <div class="card-face card-back">
+            <div class="header">
+                <h2>See your weight and age in other planets</h2>
+            </div>
+            <div class="body">
+                <input type="text" placeholder="DD/MM/YYYY">
+                <input type="text" placeholder="Your age is:">
+                <input type="text" placeholder="Weight(kg)">
+                <input type="text" placeholder="Your weight is:">
+            </div>
+        </div>
+    </div>
+</div>`
+}
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
 class Planet { //constructor
     constructor(pPlanetName, pPlanetGravity, pPlanetAge) {
         this.pPlanetName = pPlanetName,
@@ -166,3 +272,4 @@ function numberConvertor(pNumber) {
     }
     return 0;
 }
+ */

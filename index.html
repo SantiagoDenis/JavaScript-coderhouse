@@ -15,20 +15,28 @@
 
     <link rel="stylesheet" href="/styles/index.css">
 
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <!-- linkeando el .js to html -->
+
+
     <title>VoyagerWeb | Info </title>
 </head>
 <body>
 
 <header>
-    <nav>
-        <ul>
-            <li><a href="index.html">logo</a></li>
-            <li><a href="index.html">shop</a></li>
-        </ul>
+    <nav class="navbar">
+        <div class="navbar-center">
+            <span class="nav-icon">
+                <i class="fas fa-cart-plus"></i>
+            </span>
+            <div class="cart-items">0</div>
+        </div>
     </nav>
 </header>
 
 <main>
+    <!-- introduction -->
     <section class="intro">
         <div class="bg">
             <div class="content">
@@ -37,7 +45,7 @@
                         <img src="/imgs/spaceship.jpg" alt="nave espacial">
                     </div>
                     <div class="title-container">
-                        <h2>Sobre Nosotros</h2>
+                        <a href="games.html"><h2>Juego</h2></a>
                     </div>
                     <div class="text-container">
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
@@ -48,7 +56,7 @@
                         <img src="/imgs/window.jpg" alt="ventana de nave espacial">
                     </div>
                     <div class="title-container">
-                        <h2>Comprar un viaje</h2>
+                        <a href="#products"><h2>Comprar un viaje</h2></a>
                     </div>
                     <div class="text-container">
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
@@ -59,7 +67,7 @@
                         <img src="/imgs/telescope.jpg" alt="telescopio">
                     </div>
                     <div class="title-container">
-                        <h2>Nuestro alcance</h2>
+                        <a href="#planets"><h2>Nuestro alcance</h2></a>
                     </div>
                     <div class="text-container">
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
@@ -69,130 +77,408 @@
         </div>
     </section>
 
-    <section class="about">
+    <!-- e-commerce -->
+    <section id="products" class="products">
         <div class="bg">
             <div class="content">
-                <div></div>
+                <div class="cards">
+                    <div class="img-container">
+                        <img src="/imgs/enterprise.jpg" alt="Mercurio">
+                        <button class="bag-btn" data-id="1">
+                            <i class="fas fa-shopping-cart"></i>
+                            reservar un asiento
+                        </button>
+                    </div>
+                    <div class="title-container">
+                        <h2>Enterprise : Mercury</h2>
+                    </div>
+                    <div class="text-container">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="img-container">
+                        <img src="/imgs/prometheus.jpg" alt="Venus">
+                        <button class="bag-btn" data-id="1">
+                            <i class="fas fa-shopping-cart"></i>
+                            reservar un asiento
+                        </button>
+                    </div>
+                    <div class="title-container">
+                        <h2>Prometheus : Venus</h2>
+                    </div>
+                    <div class="text-container">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="img-container">
+                        <img src="/imgs/interestellar.jpg" alt="Marte">
+                        <button class="bag-btn" data-id="1">
+                            <i class="fas fa-shopping-cart"></i>
+                            reservar un asiento
+                        </button>
+                    </div>
+                    <div class="title-container">
+                        <h2>Endurance : Mars</h2>
+                    </div>
+                    <div class="text-container">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="img-container">
+                        <img src="/imgs/covenant.jpg" alt="Júpiter">
+                        <button class="bag-btn" data-id="1">
+                            <i class="fas fa-shopping-cart"></i>
+                            reservar un asiento
+                        </button>
+                    </div>
+                    <div class="title-container">
+                        <h2>Covenant : Jupiter</h2>
+                    </div>
+                    <div class="text-container">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="img-container">
+                        <img src="/imgs/USS Sulaco.webp" alt="Saturno">
+                        <button class="bag-btn" data-id="1">
+                            <i class="fas fa-shopping-cart"></i>
+                            reservar un asiento
+                        </button>
+                    </div>
+                    <div class="title-container">
+                        <h2>USS Sulaco : Saturn</h2>
+                    </div>
+                    <div class="text-container">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="img-container">
+                        <img src="/imgs/empire.jpg" alt="Urano">
+                        <button class="bag-btn" data-id="1">
+                            <i class="fas fa-shopping-cart"></i>
+                            reservar un asiento
+                        </button>
+                    </div>
+                    <div class="title-container">
+                        <h2>Devastator : Uranus</h2>
+                    </div>
+                    <div class="text-container">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="img-container">
+                        <img src="/imgs/discovery.webp" alt="Neptuno">
+                        <button class="bag-btn" data-id="1">
+                            <i class="fas fa-shopping-cart"></i>
+                            reservar un asiento
+                        </button>
+                    </div>
+                    <div class="title-container">
+                        <h2>Discovery : Neptune</h2>
+                    </div>
+                    <div class="text-container">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="img-container">
+                        <img src="/imgs/milenium falcon.webp" alt="Plutón">
+                        <button class="bag-btn" data-id="1">
+                            <i class="fas fa-shopping-cart"></i>
+                            reservar un asiento
+                        </button>
+                    </div>
+                    <div class="title-container">
+                        <h2>Millenium Falcon : Pluto</h2>
+                    </div>
+                    <div class="text-container">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="travels">
-        <div class="bg">
-            <div class="content">
-                
+<!-- cart -->
+<div class="cart-overlay">
+    <div class="cart">
+        <span class="close-cart">
+            <i class="fas fa-window-close"></i>
+        </span>
+        <h2> Tu Carrito </h2>
+        <div class="cart-content">
+            <div class="cart-items">
+                <img src="/imgs/enterprise.jpg" alt="">
+                <h4> Enterprise Passage </h4>
+                <h5> $900 </h5>
+                <span class="remove-item"> remove </span>
+            </div>
+            <div>
+                <i class="fas fa-chevron-up"></i>
+                <p class="item-amount">1</p>
+                <i class="fas fa-chevron-down"></i>
             </div>
         </div>
+        <div class="cart-footer">
+            <h3> your total : $ <span class="cart-total">0</span> </h3>
+            <button class="clear-cart banner-btn">clear cart</button>
+        </div>
+    </div>
+</div>
 
-        <section class="planets">
-            <div class="bg">
-                <div class="content">
-                    <div class="cards">
-                        <div class="img-container">
-                            <img src="/imgs/mercury.jpg" alt="Mercurio">
+<!-- planets -->
+    <section id="planets" class="planets">
+        <div class="bg">
+            <div class="content">
+                <div class="cards" data-id="1">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <div class="img-container">
+                                <img class="img-fix" src="/imgs/mercury.jpg" alt="Mercurio">
+                            </div>
+                            <div class="title-container">
+                                <h2>Mercurio</h2>
+                            </div>
+                            <div class="text-container">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                            </div>
                         </div>
-                        <div class="title-container">
-                            <h2>Mercurio</h2>
-                        </div>
-                        <div class="text-container">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
-                        </div>
-                    </div>
-                    <div class="cards">
-                        <div class="img-container">
-                            <img src="/imgs/venus.jpg" alt="Venus">
-                        </div>
-                        <div class="title-container">
-                            <h2>Venus</h2>
-                        </div>
-                        <div class="text-container">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
-                        </div>
-                    </div>
-                    <div class="cards">
-                        <div class="img-container">
-                            <img src="/imgs/earth.jpg" alt="Tierra">
-                        </div>
-                        <div class="title-container">
-                            <h2>Tierra</h2>
-                        </div>
-                        <div class="text-container">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                        <div class="card-face card-back">
+                            <div class="header">
+                                <h2>See your weight and age in other planets</h2>
+                            </div>
+                            <div class="body">
+                                <form id="form">
+                                    <input id="year" type="number" placeholder="YYYY">
+                                    <input id="weight" type="number" placeholder="Weight(kg)">
+                                    <button type="submit">Submit</button>
+                                    <button id="out">Volver</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                    <div class="cards">
-                        <div class="img-container">
-                            <img src="/imgs/mars.jpg" alt="Marte">
+                </div>
+                <div class="cards">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <div class="img-container">
+                                <img src="/imgs/venus.jpg" alt="Venus">
+                            </div>
+                            <div class="title-container">
+                                <h2>Venus</h2>
+                            </div>
+                            <div class="text-container">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                            </div>
                         </div>
-                        <div class="title-container">
-                            <h2>Marte</h2>
-                        </div>
-                        <div class="text-container">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
-                        </div>
-                    </div>
-                    <div class="cards">
-                        <div class="img-container">
-                            <img src="/imgs/jupiter.jpg" alt="Júpiter">
-                        </div>
-                        <div class="title-container">
-                            <h2>Júpiter</h2>
-                        </div>
-                        <div class="text-container">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
-                        </div>
-                    </div>
-                    <div class="cards">
-                        <div class="img-container">
-                            <img src="/imgs/saturn.jpg" alt="Saturno">
-                        </div>
-                        <div class="title-container">
-                            <h2>Saturno</h2>
-                        </div>
-                        <div class="text-container">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                        <div class="card-face card-back">
+                            <div class="header">
+                                <h2>See your weight and age in other planets</h2>
+                            </div>
+                            <div class="body">
+                                <input type="text" placeholder="DD/MM/YYYY">
+                                <input type="text" placeholder="Your age is:">
+                                <input type="text" placeholder="Weight(kg)">
+                                <input type="text" placeholder="Your weight is:">
+                            </div>
                         </div>
                     </div>
-                    <div class="cards">
-                        <div class="img-container">
-                            <img src="/imgs/uranus.jpg" alt="Urano">
+                </div>
+                <div class="cards">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <div class="img-container">
+                                <img src="/imgs/earth.jpg" alt="Tierra">
+                            </div>
+                            <div class="title-container">
+                                <h2>Tierra</h2>
+                            </div>
+                            <div class="text-container">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                            </div>
                         </div>
-                        <div class="title-container">
-                            <h2>Urano</h2>
-                        </div>
-                        <div class="text-container">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                        <div class="card-face card-back">
+                            <div class="header">
+                                <h2>See your weight and age in other planets</h2>
+                            </div>
+                            <div class="body">
+                                <input type="text" placeholder="DD/MM/YYYY">
+                                <input type="text" placeholder="Your age is:">
+                                <input type="text" placeholder="Weight(kg)">
+                                <input type="text" placeholder="Your weight is:">
+                            </div>
                         </div>
                     </div>
-                    <div class="cards">
-                        <div class="img-container">
-                            <img src="/imgs/neptune.jpg" alt="Neptuno">
+                </div>
+                <div class="cards">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <div class="img-container">
+                                <img src="/imgs/mars.jpg" alt="Marte">
+                            </div>
+                            <div class="title-container">
+                                <h2>Marte</h2>
+                            </div>
+                            <div class="text-container">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                            </div>
                         </div>
-                        <div class="title-container">
-                            <h2>Neptuno</h2>
-                        </div>
-                        <div class="text-container">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                        <div class="card-face card-back">
+                            <div class="header">
+                                <h2>See your weight and age in other planets</h2>
+                            </div>
+                            <div class="body">
+                                <input type="text" placeholder="DD">
+                                <input type="text" placeholder="MM">
+                                <input type="text" placeholder="YYYY">
+                                <input type="text" placeholder="Your age is:">
+                                <input type="text" placeholder="Weight(kg)">
+                                <input type="text" placeholder="Your weight is:">
+                            </div>
                         </div>
                     </div>
-                    <div class="cards">
-                        <div class="img-container">
-                            <img src="/imgs/pluto.jpg" alt="Plutón">
+                </div>
+                <div class="cards">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <div class="img-container">
+                                <img class="img-fix" src="/imgs/jupiter.jpg" alt="Júpiter">
+                            </div>
+                            <div class="title-container">
+                                <h2>Júpiter</h2>
+                            </div>
+                            <div class="text-container">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                            </div>
                         </div>
-                        <div class="title-container">
-                            <h2>Plutón</h2>
+                        <div class="card-face card-back">
+                            <div class="header">
+                                <h2>See your weight and age in other planets</h2>
+                            </div>
+                            <div class="body">
+                                <input type="text" placeholder="DD/MM/YYYY">
+                                <input type="text" placeholder="Your age is:">
+                                <input type="text" placeholder="Weight(kg)">
+                                <input type="text" placeholder="Your weight is:">
+                            </div>
                         </div>
-                        <div class="text-container">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <div class="img-container">
+                                <img src="/imgs/saturn.jpg" alt="Saturno">
+                            </div>
+                            <div class="title-container">
+                                <h2>Saturno</h2>
+                            </div>
+                            <div class="text-container">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                            </div>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="header">
+                                <h2>See your weight and age in other planets</h2>
+                            </div>
+                            <div class="body">
+                                <input type="text" placeholder="DD/MM/YYYY">
+                                <input type="text" placeholder="Your age is:">
+                                <input type="text" placeholder="Weight(kg)">
+                                <input type="text" placeholder="Your weight is:">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <div class="img-container">
+                                <img src="/imgs/uranus.jpg" alt="Urano">
+                            </div>
+                            <div class="title-container">
+                                <h2>Urano</h2>
+                            </div>
+                            <div class="text-container">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                            </div>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="header">
+                                <h2>See your weight and age in other planets</h2>
+                            </div>
+                            <div class="body">
+                                <input type="text" placeholder="DD/MM/YYYY">
+                                <input type="text" placeholder="Your age is:">
+                                <input type="text" placeholder="Weight(kg)">
+                                <input type="text" placeholder="Your weight is:">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <div class="img-container">
+                                <img src="/imgs/neptune.jpg" alt="Neptuno">
+                            </div>
+                            <div class="title-container">
+                                <h2>Neptuno</h2>
+                            </div>
+                            <div class="text-container">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                            </div>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="header">
+                                <h2>See your weight and age in other planets</h2>
+                            </div>
+                            <div class="body">
+                                <input type="text" placeholder="DD/MM/YYYY">
+                                <input type="text" placeholder="Your age is:">
+                                <input type="text" placeholder="Weight(kg)">
+                                <input type="text" placeholder="Your weight is:">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <div class="img-container">
+                                <img src="/imgs/pluto.jpg" alt="Plutón">
+                            </div>
+                            <div class="title-container">
+                                <h2>Plutón</h2>
+                            </div>
+                            <div class="text-container">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                            </div>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="header">
+                                <h2>See your weight and age in other planets</h2>
+                            </div>
+                            <div class="body">
+                                <input type="text" placeholder="DD/MM/YYYY">
+                                <input type="text" placeholder="Your age is:">
+                                <input type="text" placeholder="Weight(kg)">
+                                <input type="text" placeholder="Your weight is:">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </section>
 </main>
 
-    <!-- linkeando el .js to html -->
-    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

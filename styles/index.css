@@ -1,3 +1,11 @@
+:root {
+  --primaryColor: rgb(32, 9, 51);
+  --mainWhite: #fff;
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --mainSpacing: 0.1rem;
+  --mainTransition: all 0.3s linear; }
+
 * {
   margin: 0;
   padding: 0;
@@ -10,24 +18,42 @@ html {
 body {
   background: #292323; }
 
-nav {
-  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+a {
+  text-decoration: none; }
+
+.navbar {
+  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5));
   opacity: .3;
+  top: 0;
   height: 10vh;
   width: 100%;
   z-index: 100;
   position: fixed;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.2); }
-  nav ul li {
-    list-style: none;
-    display: inline-block;
-    margin-right: 2vh; }
-    nav ul li a {
-      text-decoration: none;
-      color: #f0f0f0;
-      font-size: 1.1em; }
+  .navbar .navbar-center {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 3px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; }
+    .navbar .navbar-center .nav-icon {
+      font-size: 1.5rem; }
+
+.cart-btn {
+  position: relative;
+  cursor: pointer; }
+
+.cart-items {
+  top: -8px;
+  right: -8px;
+  background: var(--primaryColor);
+  padding: 0 5px;
+  border-radius: 50%;
+  color: var(--mainWhite); }
 
 /*content*/
 .intro {
@@ -103,51 +129,222 @@ nav {
         width: 30%;
         height: 100%; }
 
-.about {
-  height: 100vh;
+.products {
+  height: 245vh;
   width: 100%;
   position: relative; }
-  .about .bg {
+  .products .bg {
     width: 100%;
-    height: 150vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(/imgs/Space-Desktop.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), black;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
     background-attachment: fixed; }
-    .about .bg .content {
-      background: #fff;
-      width: 90%;
+    .products .bg .content {
+      width: 60%;
       margin: 0 auto;
-      height: 70%;
-      display: flex;
-      align-items: center;
-      justify-content: center; }
+      height: 80%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      gap: 3%; }
+      .products .bg .content .cards {
+        width: 100%;
+        height: 90%;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1%;
+        flex-wrap: wrap;
+        border-radius: 3%;
+        overflow: hidden;
+        opacity: .8;
+        transition: 0.3s ease; }
+        .products .bg .content .cards .img-container {
+          width: 100%;
+          height: 60%;
+          background: black;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: #ecf0f1 solid 1px;
+          border-bottom: black solid 1px;
+          position: relative;
+          overflow: hidden; }
+          .products .bg .content .cards .img-container img {
+            width: 85%;
+            height: 100%;
+            border-radius: 50%;
+            transition: var(--MainTransition); }
+          .products .bg .content .cards .img-container .bag-btn {
+            position: absolute;
+            top: 70%;
+            right: 0;
+            background: var(--primaryColor);
+            border: none;
+            text-transform: uppercase;
+            padding: 0.5rem 0.75rem;
+            letter-spacing: var(--mainSpacing);
+            font-weight: bold;
+            transition: var(--mainTransition);
+            transform: translateX(101%);
+            cursor: pointer; }
+            .products .bg .content .cards .img-container .bag-btn .fa-shopping-cart {
+              margin-right: 0.5rem; }
+          .products .bg .content .cards .img-container .bag-btn:hover {
+            color: var(--mainWhite); }
+        .products .bg .content .cards .img-container:hover img {
+          opacity: .7; }
+        .products .bg .content .cards .img-container:hover .bag-btn {
+          transform: translateX(0); }
+        .products .bg .content .cards .title-container {
+          width: 100%;
+          height: 10%;
+          background: #ecf0f1;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+          .products .bg .content .cards .title-container h2 {
+            font-family: 'Quicksand', sans-serif;
+            color: #334; }
+        .products .bg .content .cards .text-container {
+          width: 100%;
+          height: 30%;
+          background: #bdc3c7;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #333; }
+          .products .bg .content .cards .text-container p {
+            width: 80%;
+            height: auto;
+            text-align: center; }
 
-.travels {
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transition: var(--mainTransition);
+  background: rgba(240, 157, 81, 0.5);
+  z-index: 2;
+  visibility: hidden; }
+  .cart-overlay .cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    z-index: 3;
+    background: #e7e2dd;
+    padding: 1.5rem;
+    transition: var(--mainTransition);
+    transform: translateX(100%); }
+    .cart-overlay .cart .close-cart {
+      font-size: 1.7rem;
+      cursor: pointer; }
+    .cart-overlay .cart h2 {
+      text-transform: capitalize;
+      text-align: center;
+      letter-spacing: var(--mainSpacing);
+      margin-bottom: 2rem; }
+
+.showCart {
+  transform: translateX(0); }
+
+.transparentBcg {
+  visibility: visible; }
+
+/*---------- Cart Item -------------------- */
+.cart-item {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  grid-column-gap: 1.5rem;
+  margin: 1.5rem 0; }
+  .cart-item img {
+    width: 75px;
+    height: 75px; }
+  .cart-item h4 {
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    letter-spacing: var(--mainSpacing); }
+  .cart-item h5 {
+    margin: 0.5rem 0;
+    letter-spacing: var(--mainSpacing); }
+
+.item-amount {
+  text-align: center; }
+
+.remove-item {
+  color: grey;
+  cursor: pointer; }
+
+.fa-chevron-up,
+.fa-chevron-down {
+  color: var(--primaryColor);
+  cursor: pointer; }
+
+/*---------- End of Cart Item -------------------- */
+.cart-footer {
+  margin-top: 2rem;
+  letter-spacing: var(--mainSpacing);
+  text-align: center; }
+  .cart-footer h3 {
+    text-transform: capitalize;
+    margin-bottom: 1rem; }
+  .cart-footer .banner-btn {
+    padding: 1rem 3rem;
+    text-transform: uppercase;
+    letter-spacing: var(--mainSpacing);
+    font-size: 1rem;
+    background: var(--primaryColor);
+    color: var(--mainBlack);
+    border: 1px solid var(--primaryColor);
+    transition: var(--mainTransition);
+    cursor: pointer; }
+  .cart-footer .banner-btn:hover {
+    background: transparent;
+    color: var(--primaryColor); }
+
+@media screen and (min-width: 768px) {
+  .cart {
+    width: 30vw;
+    min-width: 450px; } }
+
+/* --------------- End of Cart ---------------- */
+.games {
   background: #fff;
   height: 100vh;
   width: 100%;
   position: relative; }
-  .travels .bg {
+  .games .bg {
     width: 100%;
-    height: 150vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(/imgs/background_2.gif);
+    min-height: 150vh;
+    background: black;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
     background-attachment: fixed; }
-    .travels .bg .content {
-      width: 90%;
-      margin: 0 auto;
+    .games .bg .games-content {
+      width: 70%;
+      margin: auto;
       height: 70%;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
       align-items: center;
       justify-content: center; }
+      .games .bg .games-content img {
+        width: 100%;
+        height: 100%; }
 
 .planets {
   height: 150vh;
@@ -174,7 +371,7 @@ nav {
       .planets .bg .content .cards {
         width: 100%;
         height: 90%;
-        background: #fff;
+        background: black;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -182,27 +379,63 @@ nav {
         flex-wrap: wrap;
         border-radius: 3%;
         overflow: hidden;
-        opacity: .8;
-        transition: 0.3s ease; }
+        opacity: .8; }
+        .planets .bg .content .cards .card-inner {
+          width: 100%;
+          height: 100%;
+          transition: transform 1s;
+          transform-style: preserve-3d;
+          cursor: pointer; }
+          .planets .bg .content .cards .card-inner .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            overflow: hidden;
+            border-radius: 16px; }
+          .planets .bg .content .cards .card-inner .card-back {
+            background: var(--primaryColor);
+            transform: rotateY(180deg); }
+            .planets .bg .content .cards .card-inner .card-back .header {
+              position: relative;
+              padding: 3% 3% 4%; }
+            .planets .bg .content .cards .card-inner .card-back .header::after {
+              content: "";
+              display: block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              z-index: -1;
+              border-radius: 0 0 50% 0;
+              background-image: linear-gradient(to bottom left, var(--primaryColor) 10%, var(--mainBlack) 115%); }
+        .planets .bg .content .cards .card-inner.is-flipped {
+          transform: rotateY(180deg); }
         .planets .bg .content .cards .img-container {
           width: 100%;
           height: 60%;
-          background: #0c0f13;
+          background: black;
           display: flex;
           justify-content: center;
-          align-items: center; }
+          align-items: center;
+          border: #ecf0f1 solid 1px;
+          border-bottom: black solid 1px; }
           .planets .bg .content .cards .img-container img {
-            width: 70%;
-            height: 70%;
+            width: 85%;
+            height: 100%;
             border-radius: 50%; }
+          .planets .bg .content .cards .img-container .img-fix {
+            width: 90%;
+            height: 80%; }
         .planets .bg .content .cards .title-container {
           width: 100%;
           height: 10%;
           background: #ecf0f1;
           display: flex;
           justify-content: center;
-          align-items: center;
-          cursor: pointer; }
+          align-items: center; }
           .planets .bg .content .cards .title-container h2 {
             font-family: 'Quicksand', sans-serif;
             color: #334; }
