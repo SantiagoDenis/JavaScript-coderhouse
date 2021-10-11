@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" onclick="jump()"> <!-- para que cuando se cliquee cualquier cosa en la pagina corra la function -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Travel</title>
+    <link rel="stylesheet" href="./styles/index.css">
+
+</head>
+<body id="space-travel-body">
+    <header>
+        <nav class="navbar">
+            <div class="navbar-center">
+                <ul>
+                    <li>
+                        <a href="index.html">Logo</a>
+                    </li>
+                    <li>
+                        <a href="games.html">Juegos</a>
+                    </li>
+                    <li>
+                        <a href="cart.html">
+                            <span class="nav-icon">
+                                <i class="fas fa-cart-plus"></i>
+                            </span>
+                            <div class="cart-items">0</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div id="space-travel-container">
+        <div id="block"></div>
+        <div id="hole"></div>
+        <div id="character">
+            <img src="/imgs/prometheus.jpg" alt="">
+        </div>
+    </div>
+
+</body>
+<script src="js/spaceTravel.js"></script>
+</html>

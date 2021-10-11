@@ -1,3 +1,111 @@
+@charset "UTF-8";
+/* ------------- cada juego está aca ----------------- */
+.games {
+  background: #fff;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  color: white; }
+  .games .bg {
+    width: 100%;
+    min-height: 150vh;
+    background: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-attachment: fixed; }
+    .games .bg h3 {
+      color: white; }
+    .games .bg span {
+      color: white; }
+    .games .bg .games-content {
+      width: 70%;
+      margin: auto;
+      height: 70%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      align-items: center;
+      justify-content: center; }
+      .games .bg .games-content img {
+        width: 100%;
+        height: 100%; }
+
+#space-travel-body {
+  background-color: black; }
+
+#space-travel-container {
+  width: 400px;
+  height: 500px;
+  border: 1px solid white;
+  margin: auto;
+  overflow: hidden; }
+  #space-travel-container #block {
+    width: 50px;
+    height: 500px;
+    background-color: red;
+    position: relative;
+    left: 400px;
+    animation: block 2s infinite linear; }
+
+@keyframes block {
+  0% {
+    left: 400px; }
+  100% {
+    left: -50px; } }
+  #space-travel-container #hole {
+    width: 50px;
+    height: 150px;
+    background-color: black;
+    position: relative;
+    left: 400px;
+    top: -500px;
+    animation: block 2s infinite linear; }
+  #space-travel-container #character {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 100px;
+    border-radius: 50%; }
+    #space-travel-container #character img {
+      height: 30px;
+      width: 40px;
+      background-size: cover; }
+
+/* para el space attack game */
+#board {
+  background-color: #fff;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.grid {
+  width: 300px;
+  height: 300px;
+  border: solid black 1px;
+  display: flex;
+  flex-wrap: wrap; }
+  .grid div {
+    width: 20px;
+    height: 20px; }
+
+.invader {
+  background-color: purple;
+  border-radius: 10px; }
+
+.shooter {
+  background-color: #001e80; }
+
+.laser {
+  background-color: orange; }
+
+.boom {
+  background-color: red; }
+
 :root {
   --primaryColor: rgb(32, 9, 51);
   --mainWhite: #fff;
@@ -35,13 +143,24 @@ a {
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.2); }
   .navbar .navbar-center {
     width: 100%;
-    max-width: 1170px;
     margin: 0 3px;
     display: flex;
     align-items: center;
     justify-content: flex-end; }
-    .navbar .navbar-center .nav-icon {
-      font-size: 1.5rem; }
+    .navbar .navbar-center ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%; }
+      .navbar .navbar-center ul li {
+        list-style-type: none; }
+        .navbar .navbar-center ul li a {
+          text-decoration: none;
+          display: flex;
+          flex-direction: row; }
+          .navbar .navbar-center ul li a .nav-icon {
+            font-size: 1.5rem; }
 
 .cart-btn {
   position: relative;
@@ -50,10 +169,9 @@ a {
 .cart-items {
   top: -8px;
   right: -8px;
-  background: var(--primaryColor);
   padding: 0 5px;
   border-radius: 50%;
-  color: var(--mainWhite); }
+  color: var(--primaryColor); }
 
 /*content*/
 .intro {
@@ -129,11 +247,11 @@ a {
         width: 30%;
         height: 100%; }
 
-.products {
-  height: 245vh;
+#tickets {
+  height: 300vh;
   width: 100%;
   position: relative; }
-  .products .bg {
+  #tickets .bg {
     width: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), black;
     background-repeat: no-repeat;
@@ -142,7 +260,7 @@ a {
     align-items: center;
     justify-content: center;
     background-attachment: fixed; }
-    .products .bg .content {
+    #tickets .bg #tickets-container {
       width: 60%;
       margin: 0 auto;
       height: 80%;
@@ -150,7 +268,7 @@ a {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr 1fr;
       gap: 3%; }
-      .products .bg .content .cards {
+      #tickets .bg #tickets-container .cards1 {
         width: 100%;
         height: 90%;
         background: #fff;
@@ -163,7 +281,7 @@ a {
         overflow: hidden;
         opacity: .8;
         transition: 0.3s ease; }
-        .products .bg .content .cards .img-container {
+        #tickets .bg #tickets-container .cards1 .img-container {
           width: 100%;
           height: 60%;
           background: black;
@@ -174,12 +292,12 @@ a {
           border-bottom: black solid 1px;
           position: relative;
           overflow: hidden; }
-          .products .bg .content .cards .img-container img {
+          #tickets .bg #tickets-container .cards1 .img-container img {
             width: 85%;
             height: 100%;
             border-radius: 50%;
             transition: var(--MainTransition); }
-          .products .bg .content .cards .img-container .bag-btn {
+          #tickets .bg #tickets-container .cards1 .img-container .bag-btn {
             position: absolute;
             top: 70%;
             right: 0;
@@ -192,25 +310,25 @@ a {
             transition: var(--mainTransition);
             transform: translateX(101%);
             cursor: pointer; }
-            .products .bg .content .cards .img-container .bag-btn .fa-shopping-cart {
+            #tickets .bg #tickets-container .cards1 .img-container .bag-btn .fa-shopping-cart {
               margin-right: 0.5rem; }
-          .products .bg .content .cards .img-container .bag-btn:hover {
+          #tickets .bg #tickets-container .cards1 .img-container .bag-btn:hover {
             color: var(--mainWhite); }
-        .products .bg .content .cards .img-container:hover img {
+        #tickets .bg #tickets-container .cards1 .img-container:hover img {
           opacity: .7; }
-        .products .bg .content .cards .img-container:hover .bag-btn {
+        #tickets .bg #tickets-container .cards1 .img-container:hover .bag-btn {
           transform: translateX(0); }
-        .products .bg .content .cards .title-container {
+        #tickets .bg #tickets-container .cards1 .title-container {
           width: 100%;
           height: 10%;
           background: #ecf0f1;
           display: flex;
           justify-content: center;
           align-items: center; }
-          .products .bg .content .cards .title-container h2 {
+          #tickets .bg #tickets-container .cards1 .title-container h2 {
             font-family: 'Quicksand', sans-serif;
             color: #334; }
-        .products .bg .content .cards .text-container {
+        #tickets .bg #tickets-container .cards1 .text-container {
           width: 100%;
           height: 30%;
           background: #bdc3c7;
@@ -218,7 +336,7 @@ a {
           justify-content: center;
           align-items: center;
           color: #333; }
-          .products .bg .content .cards .text-container p {
+          #tickets .bg #tickets-container .cards1 .text-container p {
             width: 80%;
             height: auto;
             text-align: center; }
@@ -318,39 +436,11 @@ a {
     min-width: 450px; } }
 
 /* --------------- End of Cart ---------------- */
-.games {
-  background: #fff;
-  height: 100vh;
-  width: 100%;
-  position: relative; }
-  .games .bg {
-    width: 100%;
-    min-height: 150vh;
-    background: black;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-attachment: fixed; }
-    .games .bg .games-content {
-      width: 70%;
-      margin: auto;
-      height: 70%;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr;
-      align-items: center;
-      justify-content: center; }
-      .games .bg .games-content img {
-        width: 100%;
-        height: 100%; }
-
-.planets {
+#planets {
   height: 150vh;
   width: 100%;
   position: relative; }
-  .planets .bg {
+  #planets .bg {
     width: 100%;
     height: 300vh;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), black;
@@ -360,7 +450,7 @@ a {
     align-items: center;
     justify-content: center;
     background-attachment: fixed; }
-    .planets .bg .content {
+    #planets .bg #cards-container {
       width: 90%;
       margin: 0 auto;
       height: 80%;
@@ -368,7 +458,7 @@ a {
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
       gap: 3%; }
-      .planets .bg .content .cards {
+      #planets .bg #cards-container .cards2 {
         width: 100%;
         height: 90%;
         background: black;
@@ -380,13 +470,13 @@ a {
         border-radius: 3%;
         overflow: hidden;
         opacity: .8; }
-        .planets .bg .content .cards .card-inner {
+        #planets .bg #cards-container .cards2 .card-inner {
           width: 100%;
           height: 100%;
           transition: transform 1s;
           transform-style: preserve-3d;
           cursor: pointer; }
-          .planets .bg .content .cards .card-inner .card-face {
+          #planets .bg #cards-container .cards2 .card-inner .card-face {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -394,13 +484,13 @@ a {
             backface-visibility: hidden;
             overflow: hidden;
             border-radius: 16px; }
-          .planets .bg .content .cards .card-inner .card-back {
+          #planets .bg #cards-container .cards2 .card-inner .card-back {
             background: var(--primaryColor);
             transform: rotateY(180deg); }
-            .planets .bg .content .cards .card-inner .card-back .header {
+            #planets .bg #cards-container .cards2 .card-inner .card-back .header {
               position: relative;
               padding: 3% 3% 4%; }
-            .planets .bg .content .cards .card-inner .card-back .header::after {
+            #planets .bg #cards-container .cards2 .card-inner .card-back .header::after {
               content: "";
               display: block;
               position: absolute;
@@ -411,9 +501,9 @@ a {
               z-index: -1;
               border-radius: 0 0 50% 0;
               background-image: linear-gradient(to bottom left, var(--primaryColor) 10%, var(--mainBlack) 115%); }
-        .planets .bg .content .cards .card-inner.is-flipped {
+        #planets .bg #cards-container .cards2 .card-inner.is-flipped {
           transform: rotateY(180deg); }
-        .planets .bg .content .cards .img-container {
+        #planets .bg #cards-container .cards2 .img-container {
           width: 100%;
           height: 60%;
           background: black;
@@ -422,26 +512,26 @@ a {
           align-items: center;
           border: #ecf0f1 solid 1px;
           border-bottom: black solid 1px; }
-          .planets .bg .content .cards .img-container img {
+          #planets .bg #cards-container .cards2 .img-container img {
             width: 85%;
             height: 100%;
             border-radius: 50%; }
-          .planets .bg .content .cards .img-container .img-fix {
+          #planets .bg #cards-container .cards2 .img-container .img-fix {
             width: 90%;
             height: 80%; }
-        .planets .bg .content .cards .title-container {
+        #planets .bg #cards-container .cards2 .title-container {
           width: 100%;
           height: 10%;
           background: #ecf0f1;
           display: flex;
           justify-content: center;
           align-items: center; }
-          .planets .bg .content .cards .title-container h2 {
+          #planets .bg #cards-container .cards2 .title-container h2 {
             font-family: 'Quicksand', sans-serif;
             color: #334; }
-        .planets .bg .content .cards .title-container:hover {
+        #planets .bg #cards-container .cards2 .title-container:hover {
           background: #34495e; }
-        .planets .bg .content .cards .text-container {
+        #planets .bg #cards-container .cards2 .text-container {
           width: 100%;
           height: 30%;
           background: #bdc3c7;
@@ -449,7 +539,27 @@ a {
           justify-content: center;
           align-items: center;
           color: #333; }
-          .planets .bg .content .cards .text-container p {
+          #planets .bg #cards-container .cards2 .text-container p {
             width: 80%;
             height: auto;
             text-align: center; }
+
+/* ========== formulario antes del carrito========== */
+#cart-form {
+  color: black;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh; }
+  #cart-form #fieldset {
+    margin-top: 20px;
+    width: 70%;
+    height: 40%;
+    margin-bottom: 20px; }
+    #cart-form #fieldset input, #cart-form #fieldset button {
+      margin-top: 10px;
+      margin-right: 10px;
+      padding: 20px;
+      height: 10%; }

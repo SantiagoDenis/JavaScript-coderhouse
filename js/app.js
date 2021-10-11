@@ -1,275 +1,298 @@
-//obteniendo clases a través de const para el futuro carrito de compras
 
-const cartBtn = document.querySelector(".cart-btn");
-const closeCartBtn = document.querySelector(".close-cart");
-const clearCartBtn = document.querySelector(".clear-cart");
-const cartDOM = document.querySelector(".cart");
-const cartOverlay = document.querySelector(".cart-overlay");
-const cartItems = document.querySelector(".cart-items");
-const cartTotal = document.querySelector(".cart-total");
-const cartContent = document.querySelector(".cart-content");
-const travelsDOM = document.querySelector(".content");
-//el carrito de compras
-let cart = [];
+/* ========== Las cards de tickets ========== */
+const ticketsContainer = document.querySelector('#tickets-container');
 
-const img = document.querySelectorAll("img")
+const ticketsArray = [
+    {
+        id: 1,
+        name: "Enterprise",
+        img: "./imgs/enterprise.jpg",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.",
+        price: "$100.000",
+        time: "meses"
+    },
+    {
+        id: 2,
+        name: "Prometheus",
+        img: "./imgs/prometheus.jpg",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.",
+        price: "$200.000",
+        time: "2 meses"
+    },
+    {
+        id: 3,
+        name: "Endurance",
+        img: "./imgs/interestellar.jpg",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.",
+        price: "$300.000",
+        time: "3 meses"
+    },
+    {
+        id: 4,
+        name: "Covenant",
+        img: "./imgs/covenant.jpg",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.",
+        price: "$400.000",
+        time: "4 meses"
+    },
+    {
+        id: 5,
+        name: "USS Sulaco",
+        img: "./imgs/USS Sulaco.webp",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.",
+        price: "$500.000",
+        time: "5 meses"
+    },
+    {
+        id: 6,
+        name: "Devastator",
+        img: "./imgs/empire.jpg",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.",
+        price: "$600.000",
+        time: "6 meses"
+    },
+    {
+        id: 7,
+        name: "Discovery",
+        img: "./imgs/discovery.webp",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.",
+        price: "$700.000",
+        time: "7 meses"
+    },
+    {
+        id: 8,
+        name: "Millenium Falcon",
+        img: "./imgs/milenium falcon.webp",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.",
+        price: "$800.000",
+        time: "8 meses"
+    }
+];
 
 
 
-//obteniendo los pasajes
-class Passages {
+ticketsArray.forEach( (ticket) => {
+    const ticketItem = document.createElement("div")
+    ticketItem.classList.add("cards1")
+    ticketItem.innerHTML = `
+                    <div class="img-container">
+                        <img src="${ticket.img}" alt="${ticket.name}">
+                        <button class="bag-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            reservar un asiento
+                        </button>
+                    </div>
+                    <div class="title-container">
+                        <h2>${ticket.name}</h2>
+                    </div>
+                    <div class="text-container">
+                        <h3>Precio: ${ticket.price}</h3>
+                        <h3>Tiempo de viaje ${ticket.time}</h3>
+                        <p>${ticket.desc}</p>
+                    </div>
+    `;
 
-}
+ticketsContainer.appendChild(ticketItem);
 
-//mostrando esos pasajes al usuario
-class UI {
-
-}
-
-//subiendolo al local storage para que no se pierda al refrescar la página
-class Storage {
-
-}
-
-
-//para todas estas clases que he planeado, tengo pensado hacer un .json con los pasajes (y sus propiedades como precio, titulo, entre otros) para facilitar las operaciones que haga de forma dinámica (como, por ejemplo, agregar todos los pasajes de forma dinámica a través del DOM y no copiando y pegando en HTML). Mi pregunta es si tengo permitido hacerlo.
-
-
-//haciendo que la card gire al tocarla en .planets, para mostrar otro contenido (clase 8 y 9)
-
-const planetCard = document.querySelector('.card-inner');
-const planetCardBtn = document.querySelector('#out');
-const inputYear = document.querySelector('#year');
-const inputWeight = document.querySelector('#weight');
-
-
-planetCard.addEventListener('click', () => {
-    planetCard.classList.add('is-flipped');
-});
-
-planetCardBtn.addEventListener('click', () => {
-    planetCard.classList.remove('is-flipped');
 })
 
 
 
-//quiero agregar las cards de forma dinámica  para no tener tanto html pero no me deja. No sé cuál es el error
-/* const cards = ['mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune']
-const allCards = document.querySelector('.cards');
+/* ========== Las cards de planetas ========== */
 
-for (const card of cards) {
-    allCards.innerHTML += `<div class="cards" data-id="1">
-    <div class="card-inner">
+const cardsContainer = document.querySelector('#cards-container')
+
+
+const cardsArray = [
+    {
+        id: 1,
+        name: "mercury",
+        img: "./imgs/mercury.jpg",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.",
+        cardPlanet: {
+            gravity: 3.7,
+            age: .24
+        }
+    },
+    {
+        id: 2,
+        name: "venus",
+        img: "./imgs/venus.jpg",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.",
+        cardPlanet: {
+            gravity: 8.8,
+            age: .61
+        }
+    },
+    {
+        id: 3,
+        name: "earth",
+        img: "./imgs/earth.jpg",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.",
+        cardPlanet: {
+            gravity: 9.8,
+            age: 1
+        }
+    },
+    {
+        id: 4,
+        name: "mars",
+        img: "./imgs/mars.jpg",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.",
+        cardPlanet: {
+            gravity: 3.7,
+            age: 1.88
+        }
+    },
+    {
+        id: 5,
+        name: "jupiter",
+        img: "./imgs/jupiter.jpg",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.",
+        cardPlanet: {
+            gravity: 24.8,
+            age: 11.86
+        }
+    },
+    {
+        id: 6,
+        name: "saturn",
+        img: "./imgs/saturn.jpg",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.",
+        cardPlanet: {
+            gravity: 10.4,
+            age: 29.47
+        }
+    },
+    {
+        id: 7,
+        name: "uranus",
+        img: "./imgs/uranus.jpg",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.",
+        cardPlanet: {
+            gravity: 8.8,
+            age: 84.07
+        }
+    },
+    {
+        id: 8,
+        name: "neptune",
+        img: "./imgs/neptune.jpg",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.",
+        cardPlanet: {
+            gravity: 11.1,
+            age: 164.88
+        }
+    },
+    {
+        id: 9,
+        name: "pluto",
+        img: "./imgs/pluto.jpg",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.",
+        cardPlanet: {
+            gravity: .62,
+            age: 248
+        }
+    }
+];
+//los botones para dar vuelta la tarjeta solo funcionan en mercurio pero no en los demás... ¿Por qué?
+cardsArray.forEach( (planet) => {
+    const planetItem = document.createElement("div")
+    planetItem.classList.add("cards2")
+    planetItem.innerHTML = `
+    <div class="card-inner is-flipped">
         <div class="card-face card-front">
             <div class="img-container">
-                <img class="img-fix" src="/imgs/${card}.jpg" alt="${card}">
+                <img src=${planet.img} alt="${planet.name}">
             </div>
             <div class="title-container">
-                <h2>${card}</h2>
+                <h2>${planet.name}</h2>
             </div>
             <div class="text-container">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque consectetur nemo corrupti impedit.</p>
+                <p>${planet.desc}</p>
+                <button class="in">Calcular</button>
             </div>
         </div>
         <div class="card-face card-back">
             <div class="header">
-                <h2>See your weight and age in other planets</h2>
+                <h2>See your weight and age in ${planet.name}</h2>
             </div>
             <div class="body">
-                <input type="text" placeholder="DD/MM/YYYY">
-                <input type="text" placeholder="Your age is:">
-                <input type="text" placeholder="Weight(kg)">
-                <input type="text" placeholder="Your weight is:">
+                <form class="form">
+                    <input required class="year" type="number" placeholder="YYYY">
+                    <input required class="weight" type="number" placeholder="Weight(kg)">
+                    <input class="calculate" value="send" type="submit"></input>
+                    <button class="out">Volver</button>
+                </form>
+                <div class="results-container">
+                </div>
             </div>
         </div>
     </div>
-</div>`
-}
- */
+    `
+
+cardsContainer.appendChild(planetItem);
+
+})
+
+//no los selecciona; la card no gira porque no selecciona estas clases (con solo el "querySelector" si funciona pero solamente para la primer card). ¿Cómo hacer que funcione en todas?)
+const planetCard = document.querySelectorAll('.card-inner');
+const planetCardBtnOut = document.querySelectorAll('.out');
+const planetCardBtnIn = document.querySelectorAll('.in');
+const inputYear = document.querySelectorAll('.year');
+const inputWeight = document.querySelectorAll('.weight');
+const form = document.querySelectorAll('.form');
+const submitBtn = document.querySelectorAll('.calculate')
+const results = document.querySelectorAll('.results-container')
+
+
+//haciendo que la card gire al tocarla en .planets, para mostrar otro contenido
+//la clase is-flipped es la que no hace display
+    planetCardBtnIn.onclick =  () => {
+        planetCard.classList.add('is-flipped');
+    };
+
+    planetCardBtnOut.onclick = () => {
+        planetCard.classList.remove('is-flipped');
+    };
+
+    //la operación de el peso y la edad
+
+/*     let weight = inputWeight.value
+    let age = inputYear.value
+
+    let resultW = weight * cardsArray.cardPlanet.gravity / 9.8
+    let resultA = age * 1 / cardsArray.cardPlanet.age
+
+
+results.innerHTML = ` <h3>Your weight in ${planet.name} is: ${resultW} </h3>
+<h3>Your age in ${planet.name} is: ${resultA} </h3> ` */
 
 
 
+//carrito; recien comienzo a hacerlo
 
+/* cardsArray.forEach( (planet) => {
+    const div = document.createElement("div")
+    div.classList.add("cards")
+    div.innerHTML = `
+    <div class="img-container">
+        <img src="/imgs/enterprise.jpg" alt="Mercurio">
+        <button class="bag-btn" data-id="1">
+            <i class="fas fa-shopping-cart"></i>
+            reservar un asiento
+        </button>
+        </div>
+        <div class="title-container">
+            <h2>Enterprise : Mercury</h2>
+        </div>
+        <div class="text-container">
+            <h3>Nave</h3>
+            <h3>$400.000</h3>
+        </div>
+    </div>
+    `
 
+cardsContainer.appendChild(div);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-class Planet { //constructor
-    constructor(pPlanetName, pPlanetGravity, pPlanetAge) {
-        this.pPlanetName = pPlanetName,
-            this.pPlanetGravity = pPlanetGravity,
-            this.pPlanetAge = pPlanetAge;
-    }
-}
-
-const mercury = new Planet("mercury", 3.7, .24) ; //cada planeta utilizando al constructor
-const venus = new Planet("venus", 8.8, .61) ;
-const earth = new Planet("earth", 9.8, 1) ;
-const mars = new Planet("mars", 3.7, 1.88) ;
-const jupiter = new Planet("jupiter", 24.8, 11.86) ;
-const saturn = new Planet("saturn", 10.4, 29.47) ;
-const uranus = new Planet("uranus", 8.8, 84.07) ;
-const neptune = new Planet("neptune", 11.1, 164.88) ;
-
-//Clase 6 Arrays
-const allPlanets = [ mercury, venus, earth, mars, jupiter, saturn, uranus, neptune ] //array que organiza los planetas
-
-for (let i = 0; i <= 7; i++) { //for que recorre cada objeto dentro del array
-    console.log(allPlanets[i]);
-}
-
-allPlanets.push({pPlanetName: "pluto", pPlanetGravity: .62, pPlanetAge: 248 }); //la utilización de un método para agregar un cuerpo celeste y completar el sistema solar (como Plutón no es un planeta reconocido no lo agrego dentro de planets)
-
-
-for (const planetName of allPlanets) {  //for que recorre en orden los nombres de los planetas
-    console.log(planetName.pPlanetName);
-}
-
-//Utilizando en método filter para indicar qué planetas tienen menor fuerza de gravedad que la tierra y qué planetas tienen una mayor fuerza de gravedad.
-const lessGravity = allPlanets.filter( (planet) => planet.pPlanetGravity < 9.8 );
-const moreGravity = allPlanets.filter( (planet) => planet.pPlanetGravity > 9.8 );
-console.log(lessGravity);
-console.log(moreGravity);
-
-//Desafío complementario: Utilizando sort function para ordenar los planetas desde el más lejano al sol hasta el más cercano
-allPlanets.sort( (a, b) => b.pPlanetAge - a.pPlanetAge );
-console.log(allPlanets);
-
-const earthGravity = 9.8;
-const earthAge = 1;
-let userName = prompt("Ingrese su nombre: "); //Nombre del usuario
-
-let welcome = numberConvertor( prompt("Hola " + userName + "! Si quieres saber tu peso en otros planetas pulsa 1, si quieres saber tu edad en otros planetas pulsa 2, para salir, presiona el boton aceptar")); //let que utilizaremos al finar del while para definir un camino
-
-var result = "";
-
-//while de peso. Aquí uso una regla de tres simple llamando la función weightOperation que calcula el peso terrestre de la persona, lo procesa y devuelve un valor segun lo introducido de la misma en base al planeta que haya escogido.
-
-while (welcome == 1) {
-
-var weight = numberConvertor( prompt("Ingrese su peso en kg aquí: ")); //etapa 1
-
-let planetChoice = numberConvertor( prompt(userName + " por favor, introducí el planeta en el que quieres saber tu peso, siendo 1 para mercurio, 2 para venus, 3 para marte, 4 para jupiter, 5 para saturno, 6 para urano y 7 para neptuno ")) //etapa 2
-
-    switch (planetChoice) { //etapa 3
-        case 1:
-            mercury.weightOperation
-            weightOperation()
-            alert (userName + ", tienes " + weightOperation() + " kg en Mercurio! ;)");
-            break;
-            case 2:
-            venus
-            weightOperation()
-            alert (userName + ", tienes " + weightOperation() + " kg en Venus! ;)");
-            case 3:
-            mars
-            weightOperation()
-            alert (userName + ", tienes " + weightOperation() + " kg en Marte! ;)");
-            break;
-            case 4:
-            jupiter
-            weightOperation()
-            alert (userName + ", tienes " + weightOperation() + " kg en Júpiter! ;)");
-            break;
-            case 5:
-            saturn
-            weightOperation()
-            alert (userName + ", tienes " + weightOperation() + " kg en Saturno! ;)");
-            break;
-            case 6:
-            uranus
-            weightOperation()
-            alert (userName + ", tienes " + weightOperation() + " kg en Urano! ;)");
-            break;
-            case 7:
-            neptune
-            weightOperation()
-            alert (userName + ", tienes " + weightOperation() + " kg en Neptuno! ;)");
-            break;
-            default:
-            alert ("No has ingresado el dato correcto :(");
-            break;
-        }
-        welcome = numberConvertor(prompt("¡Bien hecho " + userName + "! " + "Ahora, ingresa el boton aceptar para salir,pulsa 2 para ver tu edad en otros planetas o pulsa 1 para seguir viendo tu peso en otros planetas!"));
-    }
-
-//while de edad. Utilizo una regla de tres simple de la funcion ageOperation para asi calcular la edad del usuario equivalente al planeta que elijió.
-
-while (welcome == 2) {
-
-    var age = numberConvertor( prompt("Ingrese sus años de edad aquí: ")); //etapa 1
-
-    var planetChoice = numberConvertor( prompt(userName + " por favor, introducí el planeta en el que quieres saber tu edad, siendo 1 para mercurio, 2 para venus, 3 para marte, 4 para jupiter, 5 para saturno, 6 para urano y 7 para neptuno ")) //etapa 2
-
-        switch (planetChoice) { //etapa 3
-            case 1:
-                result = this.pPlanetAge;
-                ageOperation()
-                alert (userName + ", tienes " + ageOperation() + " años de edad en Mercurio! ;)");
-                break;
-                case 2:
-                result = this.pPlanetAge;
-                ageOperation()
-                alert (userName + ", tienes " + ageOperation() + " años de edad en Venus! ;)");
-                case 3:
-                result = this.pPlanetAge;
-                ageOperation()
-                alert (userName + ", tienes " + ageOperation() + " años de edad en Marte! ;)");
-                break;
-                case 4:
-                result = this.pPlanetAge;
-                ageOperation()
-                alert (userName + ", tienes " + ageOperation() + " años de edad en Júpiter! ;)");
-                break;
-                case 5:
-                result = this.pPlanetAge;
-                ageOperation()
-                alert (userName + ", tienes " + ageOperation() + " años de edad en Saturno! ;)");
-                break;
-                case 6:
-                result = this.pPlanetAge;
-                ageOperation()
-                alert (userName + ", tienes " + ageOperation() + " años de edad en Urano! ;)");
-                break;
-                case 7:
-                result = this.pPlanetAge;
-                ageOperation()
-                alert (userName + ", tienes " + ageOperation() + " años de edad en Neptuno! ;)");
-                break;
-                default:
-                alert ("No has ingresado el dato correcto :(");
-                break;
-            }
-            welcome = numberConvertor(prompt("¡Bien hecho " + userName + "! " + "Ahora, ingresa aceptar para salir, pulsa 1 para ver tu peso en otros planetas o pulsa 2 para seguir viendo tu edad en otros planetas!"));
-        }
-
-function weightOperation() {
-    const planetWeight = weight * result / earthGravity;
-    return planetWeight;
-}
-
-function ageOperation() {
-    const planetAge = earthAge * age / result;
-    return planetAge;
-}
-
-function numberConvertor(pNumber) {
-    const isANumber = !isNaN(pNumber);
-    if (isANumber) {
-        return parseInt(pNumber);
-    }
-    return 0;
-}
- */
+}) */

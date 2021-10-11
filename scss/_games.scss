@@ -1,0 +1,137 @@
+
+/* ------------- cada juego está aca ----------------- */
+.games {
+    background: #fff;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    color: white;
+
+    .bg {
+        width: 100%;
+        min-height: 150vh;
+        background: black;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-attachment: fixed;
+
+        h3 {
+            color: white;
+        }
+
+        span {
+            color: white;
+        }
+
+        .games-content {
+            width: 70%;
+            margin: auto;
+            height: 70%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+#space-travel-body {
+    background-color: black;
+}
+
+#space-travel-container{
+    width: 400px;
+    height: 500px;
+    border: 1px solid white;
+    margin: auto;
+    overflow: hidden;
+
+    #block{
+        width: 50px;
+        height: 500px;
+        background-color: red;
+        position: relative;
+        left: 400px;
+        animation: block 2s infinite linear;
+    }
+
+    @keyframes block{
+        0%{left:400px}
+        100%{left:-50px}
+    }
+
+    #hole{
+        width: 50px;
+        height: 150px;
+        background-color: black;
+        position: relative;
+        left: 400px;
+        top: -500px;
+        animation: block 2s infinite linear;
+    }
+
+    #character{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 100px;
+        border-radius: 50%;
+
+        img {
+            height: 30px;
+            width: 40px;
+            background-size: cover;
+        }
+    }
+}
+
+/* para el space attack game */
+
+#board {
+    background-color: #fff;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid {
+	width: 300px;
+	height: 300px;
+	border: solid black 1px;
+	display: flex;
+	flex-wrap: wrap;
+
+    div {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.invader {
+	background-color: purple;
+	border-radius: 10px;
+}
+
+.shooter {
+	background-color: rgb(0, 30, 128);
+}
+
+.laser {
+	background-color: orange;
+}
+
+.boom {
+	background-color: red;
+}
+

@@ -1,0 +1,29 @@
+
+:root {
+    --primaryColor: rgb(32, 9, 51);
+    --mainWhite: #fff;
+    --mainBlack: #222;
+    --mainGrey: #ececec;
+    --mainSpacing: 0.1rem;
+    --mainTransition: all 0.3s linear;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comfortaa', cursive;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #292323;
+}
+
+a {
+    text-decoration: none;
+}
