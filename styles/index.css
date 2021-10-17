@@ -1,4 +1,83 @@
 @charset "UTF-8";
+/* para el índice de games */
+.slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh; }
+  .slider-container .slider-outer {
+    width: 65%;
+    height: 75%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; }
+    .slider-container .slider-outer .prev, .slider-container .slider-outer .next {
+      cursor: pointer;
+      height: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .slider-container .slider-outer .prev i, .slider-container .slider-outer .next i {
+        height: 100%;
+        width: 100%; }
+    .slider-container .slider-outer .prev {
+      position: relative; }
+    .slider-container .slider-outer .next {
+      position: relative; }
+    .slider-container .slider-outer .slider-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      padding: 3px;
+      border: #fff solid 1px; }
+      .slider-container .slider-outer .slider-inner #picture1 {
+        background-image: url(/imgs/space-attack.jpg);
+        background-repeat: no-repeat;
+        background-size: cover; }
+      .slider-container .slider-outer .slider-inner #picture2 {
+        background-image: url(/imgs/space-travel.jpg);
+        background-repeat: no-repeat;
+        background-size: cover; }
+      .slider-container .slider-outer .slider-inner #picture3 {
+        background-image: url(/imgs/space-memory.png);
+        background-repeat: no-repeat;
+        background-size: cover; }
+      .slider-container .slider-outer .slider-inner picture {
+        width: 100%;
+        height: 100%;
+        display: none; }
+        .slider-container .slider-outer .slider-inner picture div {
+          background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.5));
+          opacity: .3;
+          box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.2);
+          height: 15%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center; }
+          .slider-container .slider-outer .slider-inner picture div h2 {
+            color: white;
+            text-align: center; }
+          .slider-container .slider-outer .slider-inner picture div a {
+            color: #fff;
+            padding: 2%;
+            background-color: #333; }
+        .slider-container .slider-outer .slider-inner picture .active {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: center; }
+      .slider-container .slider-outer .slider-inner .active {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center; }
+
 /* ------------- cada juego está aca ----------------- */
 .games {
   background: #fff;
@@ -129,6 +208,36 @@ body {
 a {
   text-decoration: none; }
 
+#main-box {
+  font-size: 24px;
+  cursor: pointer;
+  transition: all .6s;
+  display: flex;
+  flex-direction: row; }
+  #main-box .nav-icon {
+    color: blueviolet; }
+
+.sidebar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 0%;
+  background-color: blueviolet;
+  z-index: 200;
+  padding-top: 100px;
+  overflow-x: hidden;
+  transition: all .5s;
+  opacity: 1;
+  color: #fff; }
+  .sidebar .close-btn {
+    position: absolute;
+    top: 0px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 32px;
+    color: #fff; }
+
 .navbar {
   background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5));
   opacity: .3;
@@ -161,17 +270,6 @@ a {
           flex-direction: row; }
           .navbar .navbar-center ul li a .nav-icon {
             font-size: 1.5rem; }
-
-.cart-btn {
-  position: relative;
-  cursor: pointer; }
-
-.cart-items {
-  top: -8px;
-  right: -8px;
-  padding: 0 5px;
-  border-radius: 50%;
-  color: var(--primaryColor); }
 
 /*content*/
 .intro {
@@ -335,105 +433,99 @@ a {
           display: flex;
           justify-content: center;
           align-items: center;
+          flex-direction: column;
           color: #333; }
           #tickets .bg #tickets-container .cards1 .text-container p {
             width: 80%;
             height: auto;
             text-align: center; }
 
-.cart-overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  transition: var(--mainTransition);
-  background: rgba(240, 157, 81, 0.5);
-  z-index: 2;
-  visibility: hidden; }
-  .cart-overlay .cart {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    overflow: scroll;
-    z-index: 3;
-    background: #e7e2dd;
-    padding: 1.5rem;
-    transition: var(--mainTransition);
-    transform: translateX(100%); }
-    .cart-overlay .cart .close-cart {
-      font-size: 1.7rem;
-      cursor: pointer; }
-    .cart-overlay .cart h2 {
-      text-transform: capitalize;
-      text-align: center;
-      letter-spacing: var(--mainSpacing);
-      margin-bottom: 2rem; }
-
-.showCart {
-  transform: translateX(0); }
-
-.transparentBcg {
-  visibility: visible; }
-
 /*---------- Cart Item -------------------- */
-.cart-item {
-  display: grid;
+.cart-header {
+  font-weight: bold;
+  font-size: 1.25em;
+  color: #333; }
+
+.cart-column {
+  display: flex;
   align-items: center;
-  grid-template-columns: auto 1fr auto;
-  grid-column-gap: 1.5rem;
-  margin: 1.5rem 0; }
-  .cart-item img {
-    width: 75px;
-    height: 75px; }
-  .cart-item h4 {
-    font-size: 0.85rem;
-    text-transform: capitalize;
-    letter-spacing: var(--mainSpacing); }
-  .cart-item h5 {
-    margin: 0.5rem 0;
-    letter-spacing: var(--mainSpacing); }
+  border-bottom: 1px solid black;
+  margin-right: 1.5em;
+  padding-bottom: 10px;
+  margin-top: 10px; }
 
-.item-amount {
-  text-align: center; }
+.cart-row {
+  display: flex; }
 
-.remove-item {
-  color: grey;
-  cursor: pointer; }
+.cart-item {
+  width: 45%; }
 
-.fa-chevron-up,
-.fa-chevron-down {
-  color: var(--primaryColor);
-  cursor: pointer; }
+.cart-price {
+  width: 20%;
+  font-size: 1.2em;
+  color: #fff; }
 
-/*---------- End of Cart Item -------------------- */
-.cart-footer {
-  margin-top: 2rem;
-  letter-spacing: var(--mainSpacing);
-  text-align: center; }
-  .cart-footer h3 {
-    text-transform: capitalize;
-    margin-bottom: 1rem; }
-  .cart-footer .banner-btn {
-    padding: 1rem 3rem;
-    text-transform: uppercase;
-    letter-spacing: var(--mainSpacing);
-    font-size: 1rem;
-    background: var(--primaryColor);
-    color: var(--mainBlack);
-    border: 1px solid var(--primaryColor);
-    transition: var(--mainTransition);
-    cursor: pointer; }
-  .cart-footer .banner-btn:hover {
-    background: transparent;
-    color: var(--primaryColor); }
+.cart-quantity {
+  width: 35%; }
 
-@media screen and (min-width: 768px) {
-  .cart {
-    width: 30vw;
-    min-width: 450px; } }
+.cart-ticket-title {
+  color: #fff;
+  margin-left: .5em;
+  font-size: 1.2em; }
+
+.cart-ticket-image {
+  width: 75px;
+  height: auto;
+  border-radius: 10px; }
+
+.btn-danger {
+  color: white;
+  background-color: #EB5757;
+  border: none;
+  border-radius: .3em;
+  font-weight: bold; }
+
+.btn-danger:hover {
+  background-color: #CC4C4C; }
+
+.cart-quantity-input {
+  height: 34px;
+  width: 50px;
+  border-radius: 5px;
+  border: 1px solid #56CCF2;
+  background-color: #eee;
+  color: #333;
+  padding: 0;
+  text-align: center;
+  font-size: 1.2em;
+  margin-right: 25px;
+  display: none; }
+
+.cart-row:last-child {
+  border-bottom: 1px solid black; }
+
+.cart-row:last-child .cart-column {
+  border: none; }
+
+.cart-total {
+  text-align: end;
+  margin-top: 10px;
+  margin-right: 10px; }
+
+.cart-total-title {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: black;
+  margin-right: 20px; }
+
+.cart-total-price {
+  color: #fff;
+  font-size: 1.1em; }
+
+.btn-purchase {
+  display: block;
+  margin: 40px auto 80px auto;
+  font-size: 1.75em; }
 
 /* --------------- End of Cart ---------------- */
 #planets {
@@ -470,13 +562,13 @@ a {
         border-radius: 3%;
         overflow: hidden;
         opacity: .8; }
-        #planets .bg #cards-container .cards2 .card-inner {
+        #planets .bg #cards-container .cards2 .card-inner1, #planets .bg #cards-container .cards2 .card-inner2, #planets .bg #cards-container .cards2 .card-inner3, #planets .bg #cards-container .cards2 .card-inner4, #planets .bg #cards-container .cards2 .card-inner5, #planets .bg #cards-container .cards2 .card-inner6, #planets .bg #cards-container .cards2 .card-inner7, #planets .bg #cards-container .cards2 .card-inner8, #planets .bg #cards-container .cards2 .card-inner9 {
           width: 100%;
           height: 100%;
           transition: transform 1s;
           transform-style: preserve-3d;
           cursor: pointer; }
-          #planets .bg #cards-container .cards2 .card-inner .card-face {
+          #planets .bg #cards-container .cards2 .card-inner1 .card-face, #planets .bg #cards-container .cards2 .card-inner2 .card-face, #planets .bg #cards-container .cards2 .card-inner3 .card-face, #planets .bg #cards-container .cards2 .card-inner4 .card-face, #planets .bg #cards-container .cards2 .card-inner5 .card-face, #planets .bg #cards-container .cards2 .card-inner6 .card-face, #planets .bg #cards-container .cards2 .card-inner7 .card-face, #planets .bg #cards-container .cards2 .card-inner8 .card-face, #planets .bg #cards-container .cards2 .card-inner9 .card-face {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -484,13 +576,31 @@ a {
             backface-visibility: hidden;
             overflow: hidden;
             border-radius: 16px; }
-          #planets .bg #cards-container .cards2 .card-inner .card-back {
+          #planets .bg #cards-container .cards2 .card-inner1 .card-back, #planets .bg #cards-container .cards2 .card-inner2 .card-back, #planets .bg #cards-container .cards2 .card-inner3 .card-back, #planets .bg #cards-container .cards2 .card-inner4 .card-back, #planets .bg #cards-container .cards2 .card-inner5 .card-back, #planets .bg #cards-container .cards2 .card-inner6 .card-back, #planets .bg #cards-container .cards2 .card-inner7 .card-back, #planets .bg #cards-container .cards2 .card-inner8 .card-back, #planets .bg #cards-container .cards2 .card-inner9 .card-back {
             background: var(--primaryColor);
             transform: rotateY(180deg); }
-            #planets .bg #cards-container .cards2 .card-inner .card-back .header {
+            #planets .bg #cards-container .cards2 .card-inner1 .card-back .header, #planets .bg #cards-container .cards2 .card-inner2 .card-back .header, #planets .bg #cards-container .cards2 .card-inner3 .card-back .header, #planets .bg #cards-container .cards2 .card-inner4 .card-back .header, #planets .bg #cards-container .cards2 .card-inner5 .card-back .header, #planets .bg #cards-container .cards2 .card-inner6 .card-back .header, #planets .bg #cards-container .cards2 .card-inner7 .card-back .header, #planets .bg #cards-container .cards2 .card-inner8 .card-back .header, #planets .bg #cards-container .cards2 .card-inner9 .card-back .header {
               position: relative;
               padding: 3% 3% 4%; }
-            #planets .bg #cards-container .cards2 .card-inner .card-back .header::after {
+            #planets .bg #cards-container .cards2 .card-inner1 .card-back .body, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column; }
+              #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .year, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .weight, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .year, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .weight, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .year, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .weight, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .year, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .weight, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .year, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .weight, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .year, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .weight, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .year, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .weight, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .year, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .weight, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .year, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .weight {
+                padding: .6rem;
+                margin: auto; }
+              #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .calculate1, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .calculate2, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .calculate3, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .calculate4, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .calculate5, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .calculate6, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .calculate7, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .calculate8, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .calculate9, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .out1, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .out2, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .out3, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .out4, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .out5, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .out6, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .out7, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .out8, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .out9, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .calculate1, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .calculate2, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .calculate3, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .calculate4, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .calculate5, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .calculate6, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .calculate7, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .calculate8, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .calculate9, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .out1, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .out2, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .out3, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .out4, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .out5, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .out6, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .out7, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .out8, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .out9, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .calculate1, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .calculate2, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .calculate3, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .calculate4, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .calculate5, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .calculate6, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .calculate7, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .calculate8, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .calculate9, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .out1, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .out2, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .out3, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .out4, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .out5, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .out6, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .out7, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .out8, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .out9, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .calculate1, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .calculate2, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .calculate3, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .calculate4, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .calculate5, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .calculate6, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .calculate7, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .calculate8, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .calculate9, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .out1, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .out2, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .out3, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .out4, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .out5, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .out6, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .out7, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .out8, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .out9, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .calculate1, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .calculate2, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .calculate3, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .calculate4, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .calculate5, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .calculate6, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .calculate7, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .calculate8, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .calculate9, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .out1, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .out2, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .out3, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .out4, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .out5, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .out6, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .out7, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .out8, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .out9, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .calculate1, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .calculate2, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .calculate3, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .calculate4, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .calculate5, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .calculate6, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .calculate7, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .calculate8, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .calculate9, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .out1, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .out2, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .out3, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .out4, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .out5, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .out6, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .out7, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .out8, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .out9, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .calculate1, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .calculate2, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .calculate3, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .calculate4, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .calculate5, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .calculate6, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .calculate7, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .calculate8, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .calculate9, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .out1, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .out2, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .out3, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .out4, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .out5, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .out6, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .out7, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .out8, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .out9, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .calculate1, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .calculate2, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .calculate3, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .calculate4, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .calculate5, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .calculate6, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .calculate7, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .calculate8, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .calculate9, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .out1, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .out2, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .out3, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .out4, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .out5, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .out6, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .out7, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .out8, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .out9, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .calculate1, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .calculate2, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .calculate3, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .calculate4, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .calculate5, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .calculate6, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .calculate7, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .calculate8, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .calculate9, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .out1, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .out2, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .out3, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .out4, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .out5, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .out6, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .out7, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .out8, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .out9 {
+                margin-left: 20%;
+                margin-top: 8%;
+                margin-bottom: 8%;
+                padding: .4rem;
+                background-color: darkmagenta;
+                border: none; }
+              #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .results-container1, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .results-container2, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .results-container3, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .results-container4, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .results-container5, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .results-container6, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .results-container7, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .results-container8, #planets .bg #cards-container .cards2 .card-inner1 .card-back .body .results-container9, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .results-container1, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .results-container2, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .results-container3, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .results-container4, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .results-container5, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .results-container6, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .results-container7, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .results-container8, #planets .bg #cards-container .cards2 .card-inner2 .card-back .body .results-container9, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .results-container1, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .results-container2, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .results-container3, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .results-container4, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .results-container5, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .results-container6, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .results-container7, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .results-container8, #planets .bg #cards-container .cards2 .card-inner3 .card-back .body .results-container9, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .results-container1, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .results-container2, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .results-container3, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .results-container4, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .results-container5, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .results-container6, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .results-container7, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .results-container8, #planets .bg #cards-container .cards2 .card-inner4 .card-back .body .results-container9, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .results-container1, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .results-container2, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .results-container3, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .results-container4, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .results-container5, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .results-container6, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .results-container7, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .results-container8, #planets .bg #cards-container .cards2 .card-inner5 .card-back .body .results-container9, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .results-container1, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .results-container2, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .results-container3, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .results-container4, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .results-container5, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .results-container6, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .results-container7, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .results-container8, #planets .bg #cards-container .cards2 .card-inner6 .card-back .body .results-container9, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .results-container1, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .results-container2, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .results-container3, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .results-container4, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .results-container5, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .results-container6, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .results-container7, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .results-container8, #planets .bg #cards-container .cards2 .card-inner7 .card-back .body .results-container9, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .results-container1, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .results-container2, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .results-container3, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .results-container4, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .results-container5, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .results-container6, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .results-container7, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .results-container8, #planets .bg #cards-container .cards2 .card-inner8 .card-back .body .results-container9, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .results-container1, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .results-container2, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .results-container3, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .results-container4, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .results-container5, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .results-container6, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .results-container7, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .results-container8, #planets .bg #cards-container .cards2 .card-inner9 .card-back .body .results-container9 {
+                text-align: center;
+                color: #fff; }
+            #planets .bg #cards-container .cards2 .card-inner1 .card-back .header::after, #planets .bg #cards-container .cards2 .card-inner2 .card-back .header::after, #planets .bg #cards-container .cards2 .card-inner3 .card-back .header::after, #planets .bg #cards-container .cards2 .card-inner4 .card-back .header::after, #planets .bg #cards-container .cards2 .card-inner5 .card-back .header::after, #planets .bg #cards-container .cards2 .card-inner6 .card-back .header::after, #planets .bg #cards-container .cards2 .card-inner7 .card-back .header::after, #planets .bg #cards-container .cards2 .card-inner8 .card-back .header::after, #planets .bg #cards-container .cards2 .card-inner9 .card-back .header::after {
               content: "";
               display: block;
               position: absolute;
@@ -501,7 +611,7 @@ a {
               z-index: -1;
               border-radius: 0 0 50% 0;
               background-image: linear-gradient(to bottom left, var(--primaryColor) 10%, var(--mainBlack) 115%); }
-        #planets .bg #cards-container .cards2 .card-inner.is-flipped {
+        #planets .bg #cards-container .cards2 .is-flipped {
           transform: rotateY(180deg); }
         #planets .bg #cards-container .cards2 .img-container {
           width: 100%;
@@ -532,6 +642,8 @@ a {
         #planets .bg #cards-container .cards2 .title-container:hover {
           background: #34495e; }
         #planets .bg #cards-container .cards2 .text-container {
+          display: flex;
+          flex-direction: column;
           width: 100%;
           height: 30%;
           background: #bdc3c7;
@@ -543,23 +655,3 @@ a {
             width: 80%;
             height: auto;
             text-align: center; }
-
-/* ========== formulario antes del carrito========== */
-#cart-form {
-  color: black;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 90vh; }
-  #cart-form #fieldset {
-    margin-top: 20px;
-    width: 70%;
-    height: 40%;
-    margin-bottom: 20px; }
-    #cart-form #fieldset input, #cart-form #fieldset button {
-      margin-top: 10px;
-      margin-right: 10px;
-      padding: 20px;
-      height: 10%; }

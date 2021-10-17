@@ -1,3 +1,39 @@
+#main-box {
+    font-size: 24px;
+    cursor: pointer;
+    transition: all .6s;
+    display: flex;
+    flex-direction: row;
+
+    .nav-icon {
+        color: blueviolet;
+    }
+}
+.sidebar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 0%;
+    background-color: blueviolet;
+    z-index: 200;
+    padding-top: 100px;
+    overflow-x: hidden;
+    transition: all .5s;
+    opacity: 1;
+    color: #fff;
+
+    .close-btn {
+        position: absolute;
+        top: 0px;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 32px;
+        color:#fff ;
+    }
+}
+
+
 .navbar {
     background: linear-gradient( rgba(255,255,255,0.7), rgba(255,255,255,0.5) );
     opacity: .3;

@@ -1,3 +1,112 @@
+/* para el índice de games */
+.slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+
+    .slider-outer {
+        width: 65%;
+        height: 75%;
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .prev, .next {
+            cursor: pointer;
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            i {
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .prev {
+            position: relative;
+        }
+
+        .next {
+            position: relative;
+
+        }
+
+        .slider-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            padding: 3px;
+            border: #fff solid 1px;
+
+            #picture1 {
+                background-image: url(/imgs/space-attack.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+
+            }
+            #picture2 {
+                background-image: url(/imgs/space-travel.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+
+            }
+            #picture3 {
+                background-image: url(/imgs/space-memory.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            picture {
+                width: 100%;
+                height: 100%;
+                display: none;
+
+                div {
+                    background: linear-gradient( rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.5) );
+                    opacity: .3;
+                    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.2);
+                    height: 15%;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    h2 {
+                        color: white;
+                        text-align: center;
+                    }
+
+                    a {
+                        color: #fff;
+                        padding: 2%;
+                        background-color: #333;
+                    }
+                }
+
+                .active {
+                    display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+                }
+            }
+            .active {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+            }
+        }
+    }
+}
 
 /* ------------- cada juego está aca ----------------- */
 .games {
@@ -134,4 +243,3 @@
 .boom {
 	background-color: red;
 }
-
