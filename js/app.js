@@ -198,10 +198,8 @@ function updateCartTotal() {
     for (let i = 0; i < cartRows.length; i++) {
         let cartRow = cartRows[i]
         let priceElement = cartRow.getElementsByClassName('cart-price')[0]
-        let quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
         let price = parseInt(priceElement.innerText.replace('$', ''))
-        let quantity = quantityElement.value
-        total = total + (price * quantity)
+        total = total + price
         let cartItemsNumber = document.querySelector('.cart-items-number')
         cartItemsNumber.innerText = cartRows.length;
 
@@ -332,8 +330,8 @@ cardsArray.forEach( (planet) => {
             </div>
             <div class="body">
                 <form class="form" enctype="multipart/form-data" onsubmit="return false">
-                    <input required class="year" type="number" placeholder="Edad">
-                    <input required class="weight" type="number" placeholder="Peso(kg)">
+                    <input required class="year${planet.id}" type="number" placeholder="Edad">
+                    <input required class="weight${planet.id}" type="number" placeholder="Peso(kg)">
                     <input class="calculate${planet.id}" value="Calcular" type="submit"></input>
                     <button class="out${planet.id}">Volver</button>
                 </form>
@@ -378,9 +376,28 @@ const planetCardBtnIn7 = document.querySelector('.in7');
 const planetCardBtnIn8 = document.querySelector('.in8');
 const planetCardBtnIn9 = document.querySelector('.in9');
 
-const inputYear = document.querySelector('.year');
-const inputWeight = document.querySelector('.weight');
+const inputYear1 = document.querySelector('.year1');
+const inputYear2 = document.querySelector('.year2');
+const inputYear3 = document.querySelector('.year3');
+const inputYear4 = document.querySelector('.year4');
+const inputYear5 = document.querySelector('.year5');
+const inputYear6 = document.querySelector('.year6');
+const inputYear7 = document.querySelector('.year7');
+const inputYear8 = document.querySelector('.year8');
+const inputYear9 = document.querySelector('.year9');
+
+const inputWeight1 = document.querySelector('.weight1');
+const inputWeight2 = document.querySelector('.weight2');
+const inputWeight3 = document.querySelector('.weight3');
+const inputWeight4 = document.querySelector('.weight4');
+const inputWeight5 = document.querySelector('.weight5');
+const inputWeight6 = document.querySelector('.weight6');
+const inputWeight7 = document.querySelector('.weight7');
+const inputWeight8 = document.querySelector('.weight8');
+const inputWeight9 = document.querySelector('.weight9');
+
 const form = document.querySelector('.form');
+
 const results1 = document.querySelector('.results-container1')
 const results2 = document.querySelector('.results-container2')
 const results3 = document.querySelector('.results-container3')
@@ -402,31 +419,31 @@ const submitBtn8 = document.querySelector('.calculate8')
 const submitBtn9 = document.querySelector('.calculate9')
 
 submitBtn1.onclick = () => {
-    results1.innerHTML = "Tu peso en mercurio sería de: " + parseInt(inputWeight.value * 3.7 / 9.8) + " kg y tu edad de "+ parseInt(inputYear.value / .24) + " años"
+    results1.innerHTML = "Tu peso en mercurio sería de: " + parseInt(inputWeight1.value * 3.7 / 9.8) + " kg y tu edad de "+ parseInt(inputYear1.value / .24) + " años"
 }
 submitBtn2.onclick = () => {
-    results2.innerHTML = "Tu peso en venus sería de: " + parseInt(inputWeight.value * 8.8 / 9.8) + " kg y tu edad de "+ parseInt(inputYear.value / .61) + " años"
+    results2.innerHTML = "Tu peso en venus sería de: " + parseInt(inputWeight2.value * 8.8 / 9.8) + " kg y tu edad de "+ parseInt(inputYear2.value / .61) + " años"
 }
 submitBtn3.onclick = () => {
     results3.innerHTML = "No hay mucho que calcular acá. Andá para otro lado antes de que me enoje, dale"
 }
 submitBtn4.onclick = () => {
-    results4.innerHTML = "Tu peso en mars sería de: " + parseInt(inputWeight.value * 3.7 / 9.8) + " kg y tu edad de "+ parseInt(inputYear.value / 1.88) + " años"
+    results4.innerHTML = "Tu peso en mars sería de: " + parseInt(inputWeight4.value * 3.7 / 9.8) + " kg y tu edad de "+ parseInt(inputYear4.value / 1.88) + " años"
 }
 submitBtn5.onclick = () => {
-    results5.innerHTML = "Tu peso en jupiter sería de: " + parseInt(inputWeight.value * 24.8 / 9.8) + " kg y tu edad de "+ parseInt(inputYear.value / 11.86) + " años"
+    results5.innerHTML = "Tu peso en jupiter sería de: " + parseInt(inputWeight5.value * 24.8 / 9.8) + " kg y tu edad de "+ parseInt(inputYear5.value / 11.86) + " años"
 }
 submitBtn6.onclick = () => {
-    results6.innerHTML = "Tu peso en saturno sería de: " + parseInt(inputWeight.value * 10.4 / 9.8) + " kg y tu edad de "+ parseInt(inputYear.value / 29.47) + " años"
+    results6.innerHTML = "Tu peso en saturno sería de: " + parseInt(inputWeight6.value * 10.4 / 9.8) + " kg y tu edad de "+ parseInt(inputYear6.value / 29.47) + " años"
 }
 submitBtn7.onclick = () => {
-    results7.innerHTML = "Tu peso en urano sería de: " + parseInt(inputWeight.value * 8.8 / 9.8) + " kg y tu edad de "+ parseInt(inputYear.value / 84.07) + " años"
+    results7.innerHTML = "Tu peso en urano sería de: " + parseInt(inputWeight7.value * 8.8 / 9.8) + " kg y tu edad de "+ parseInt(inputYear7.value / 84.07) + " años"
 }
 submitBtn8.onclick = () => {
-    results8.innerHTML = "Tu peso en neptuno sería de: " + parseInt(inputWeight.value * 11.1 / 9.8) + " kg y tu edad de "+ parseInt(inputYear.value / 164.88) + " años"
+    results8.innerHTML = "Tu peso en neptuno sería de: " + parseInt(inputWeight8.value * 11.1 / 9.8) + " kg y tu edad de "+ parseInt(inputYear8.value / 164.88) + " años"
 }
 submitBtn9.onclick = () => {
-    results9.innerHTML = "Tu peso en plutón sería de: " + parseInt(inputWeight.value * .62 / 9.8) + " kg y tu edad de "+ parseInt(inputYear.value / 248) + " años"
+    results9.innerHTML = "Tu peso en plutón sería de: " + parseInt(inputWeight9.value * .62 / 9.8) + " kg y tu edad de "+ parseInt(inputYear9.value / 248) + " años"
 }
 
     planetCardBtnIn1.onclick =  () => {

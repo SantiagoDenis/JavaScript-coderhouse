@@ -205,41 +205,60 @@
 
 /* para el space attack game */
 
-#board {
-    background-color: #fff;
+#space-attack-body {
+    width: 100vw;
     height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    overflow: hidden;
 
-.grid {
-	width: 300px;
-	height: 300px;
-	border: solid black 1px;
-	display: flex;
-	flex-wrap: wrap;
+    .game-container {
+        background-image: url(/imgs/background_2.gif);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
 
-    div {
-        width: 20px;
-        height: 20px;
+        .results {
+            margin-top: 10vh;
+        }
     }
-}
 
-.invader {
-	background-color: purple;
-	border-radius: 10px;
-}
+    #board {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
 
-.shooter {
-	background-color: rgb(0, 30, 128);
-}
+    .grid {
+        width: 300px;
+        height: 300px;
+        border: solid black 1px;
+        display: flex;
+        flex-wrap: wrap;
 
-.laser {
-	background-color: orange;
-}
+        div {
+            width: 20px;
+            height: 20px;
+        }
+    }
 
-.boom {
-	background-color: red;
-}
+    .invader {
+        background-color: purple;
+        border-radius: 10px;
+    }
+
+    .shooter {
+        background-color: rgb(0, 30, 128);
+    }
+
+    .laser {
+        background-color: orange;
+    }
+
+    .boom {
+        background-color: red;
+    }
+    }

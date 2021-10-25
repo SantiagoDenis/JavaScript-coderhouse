@@ -6,6 +6,28 @@
 
 /*content*/
 
+#issMap {
+    height: 80%;
+    width: 40%;
+}
+
+#issBody {
+    background-image: url(/imgs/background_2.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.iss-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+
+}
 
 .intro {
     width: 100%;
@@ -403,7 +425,9 @@
                             align-items: center;
                             flex-direction: column;
 
-                            .year, .weight {
+                            .year1, .year2, .year3, .year4, .year5, .year6, .year7, .year8, .year9,
+                            .weight1, .weight2, .weight3, .weight4, .weight5, .weight6, .weight7, .weight8, .weight9 {
+                                margin-top: 30px;
                                 padding: .6rem;
                                 margin: auto;
                             }
