@@ -214,7 +214,7 @@ function updateCartTotal() {
 }
 
 
-/* ========== Las cards de planetas ========== */
+/* =========== Las cards de planetas ========== */
 
 const cardsContainer = document.querySelector('#cards-container')
 

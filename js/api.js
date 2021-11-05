@@ -45,5 +45,5 @@ async function getISS() {
 
 getISS();
 
-//hace que se actualize automaticamente para ver el recorrido de la iss
+///hace que se actualize automaticamente para ver el recorrido de la iss
 setInterval(getISS, 1000);
