@@ -69,6 +69,7 @@ const ticketsArray = [
     }
 ];
 
+//recorriendo las cards y agregandolas dinámicamente
 ticketsArray.forEach( (ticket) => {
     const ticketItem = document.createElement("div")
     ticketItem.classList.add("cards1")
@@ -96,6 +97,7 @@ ticketsContainer.appendChild(ticketItem);
 
 
 /* ========== carrito ========== */
+//haciendo la barra desplegable del carrito
 function openSidebar() {
     document.querySelector('#sidebar').style.width="40%";
 }
@@ -108,6 +110,7 @@ if (document.readyState == 'loading') {
 } else {
     ready()
 }
+
 
 function ready() {
     let removeCartItemButtons = document.getElementsByClassName('btn-danger')
@@ -131,6 +134,7 @@ function ready() {
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
 }
 
+//confirmando la compra
 function purchaseClicked() {
     alert('Gracias por su compra!')
     let cartItems = document.getElementsByClassName('cart-tickets')[0]
@@ -140,6 +144,7 @@ function purchaseClicked() {
     updateCartTotal()
 }
 
+//funciones que se usan para ir actualizando el carrito con cada acción del usuario
 function removeCartItem(event) {
     let buttonClicked = event.target
     buttonClicked.parentElement.parentElement.remove()
@@ -164,6 +169,7 @@ function addToCartClicked(event) {
     updateCartTotal()
 }
 
+//agregar el ticket de forma dinámica dentro de la barra desplegable del carrito
 function addItemToCart(title, price, imageSrc) {
     let cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
@@ -191,6 +197,7 @@ function addItemToCart(title, price, imageSrc) {
     cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
 }
 
+//actualizando el carrito (funcion usada en muchas otras que determinan las acciones)
 function updateCartTotal() {
     let cartItemContainer = document.getElementsByClassName('cart-tickets')[0]
     let cartRows = cartItemContainer.getElementsByClassName('cart-row')
@@ -204,8 +211,6 @@ function updateCartTotal() {
         cartItemsNumber.innerText = cartRows.length;
 
     }
-    total = Math.round(total * 100) / 100
-    document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
 }
 
 
@@ -307,6 +312,7 @@ const cardsArray = [
     }
 ];
 
+//recorriendo los planets y agregándolos dimámicamente
 cardsArray.forEach( (planet) => {
     const planetItem = document.createElement("div")
     planetItem.classList.add("cards2")
@@ -346,6 +352,7 @@ cardsContainer.appendChild(planetItem);
 
 })
 
+//seleccionando cada class de cada card necesarias para que la misma se pueda girar y hacer los cálculos
 const planetCard1 = document.querySelector('.card-inner1');
 const planetCard2 = document.querySelector('.card-inner2');
 const planetCard3 = document.querySelector('.card-inner3');
@@ -418,6 +425,7 @@ const submitBtn7 = document.querySelector('.calculate7')
 const submitBtn8 = document.querySelector('.calculate8')
 const submitBtn9 = document.querySelector('.calculate9')
 
+//una funcion que retorna la información procesada de lo que introdujo el usuario (una para cada card)
 submitBtn1.onclick = () => {
     results1.innerHTML = "Tu peso en mercurio sería de: " + parseInt(inputWeight1.value * 3.7 / 9.8) + " kg y tu edad de "+ parseInt(inputYear1.value / .24) + " años"
 }
@@ -446,6 +454,7 @@ submitBtn9.onclick = () => {
     results9.innerHTML = "Tu peso en plutón sería de: " + parseInt(inputWeight9.value * .62 / 9.8) + " kg y tu edad de "+ parseInt(inputYear9.value / 248) + " años"
 }
 
+//agregando la class que gira la card y luego quitándola cuando el usuario quiera volver
     planetCardBtnIn1.onclick =  () => {
         planetCard1.classList.add('is-flipped');
     };

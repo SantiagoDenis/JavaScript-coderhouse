@@ -1,5 +1,5 @@
 
-
+//creando un carrusel con los links a cada juego
 $(document).ready(function() {
     $(".next").on("click", function() {
         let currentImg = $(".active");
@@ -21,6 +21,7 @@ $(document).ready(function() {
     });
 });
 
+//creando un aviso a ese carrusel
 $('.slider-inner').prepend('<div id="welcome"></div>')
 $('#welcome').css('position', 'absolute')
              .css('height', '100%')

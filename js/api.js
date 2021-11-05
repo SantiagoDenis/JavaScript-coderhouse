@@ -1,4 +1,6 @@
-/* set up */
+/*========== set up ==========*/
+//decidí hacer todo sin jQuery y emplear en su lugar vanilla js (uso la api ISS tracker y una librería de mapas para poder mostrar la ubicación de la ISS en tiempo real visualmente)
+
 /* integrando la libreria, haciendo el map y tiles */
 const mymap = L.map('issMap').setView([0, 0], 1);
 
